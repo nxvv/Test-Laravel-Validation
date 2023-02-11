@@ -16,10 +16,10 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'title' => 'required',
             'description' => 'required'
         ]);
-
+        
         if ($validator->fails()) {
             return redirect('projects/create')
                 ->withErrors($validator);
