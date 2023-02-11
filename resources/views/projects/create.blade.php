@@ -5,20 +5,16 @@
 {{-- "The name field is required." and "The description field is required." --}}
 
 @if ($errors->any())
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+    @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
 @endif
 
 <form method="POST" action="{{ route('projects.store') }}">
     @csrf
     Title:
     <br />
-    <input type="text" name="title" />
+    <input type="text" name="name" />
     <br /><br />
     Description:
     <br />
